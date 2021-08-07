@@ -1,7 +1,24 @@
-<form (ngSubmit)="onAdd()">
-  <input [(ngModel)]="symbol" [ngModelOptions]="{standalone: true}" />
-  <button type="submit">Add</button>
-</form>
-<div *ngFor="let symbol of symbols">
-  <div>{{symbol}} <button (click)="onRemove(symbol)">x</button></div>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <form style="margin-bottom: 5px;" (ngSubmit)="onAdd()">
+      <input
+        class="mdl-textfield__input"
+        type="text"
+        [(ngModel)]="symbol"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </form>
+    <table class="mdl-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <tbody>
+        <tr *ngFor="let symbol of symbols">
+          <td class="mdl-data-table__cell--non-numeric">{{ symbol }}</td>
+          <td style="padding-top: 6px;">
+            <button class="mdl-button" (click)="onRemove(symbol)">x</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
 </div>
