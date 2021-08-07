@@ -7,7 +7,7 @@ import { StockInterface, StocksService } from './services/stocks.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  stocks: Array<StockInterface> = [];
+  stocks: Array<StockInterface>;
 
   constructor(service: StocksService) {
     service.load(['AAPL', 'FB'])?.subscribe(stocks => {
