@@ -1,4 +1,7 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onAdd()">
   <input [(ngModel)]="symbol" [ngModelOptions]="{standalone: true}" />
   <button type="submit">Add</button>
 </form>
+<div *ngFor="let symbol of symbols">
+  <div>{{symbol}} <button (click)="onRemove(symbol)">x</button></div>
+</div>

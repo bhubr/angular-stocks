@@ -10,16 +10,23 @@ export class ManageComponent implements OnInit {
 
   symbol: string = '';
 
-  constructor(private service: StocksService) { }
+  symbols: Array<string>;
+
+  constructor(private service: StocksService) {
+    this.symbols = service.get();
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onAdd() {
     const symbol = this.symbol.toUpperCase();
-    this.service.add(symbol);
-    console.log(this.service.get());
-    this.service.load(this.service.get());
+    this.symbols = this.service.add(symbol);
+    this.symbol = '';
+  }
+
+  onRemove(symbol: string) {
+    this.symbols = this.service.remove(symbol);
   }
 
 }
