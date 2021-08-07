@@ -1,0 +1,14 @@
+:host .stock-card {
+  width: 100%;
+  background: #333;
+}
+:host .stock-card.increase {
+  background: #558b2f;
+}
+:host .stock-card.decrease {
+  background: #c62828;
+}
+:host .stock-card h4 {
+  color: #fff;
+  margin: 0;
+}
